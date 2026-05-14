@@ -20,4 +20,18 @@ public class BookBST {
         // smaller isbn go left, larger isbn go right
         return current;
     }
+
+    public Book search(int isbn) {
+        return searchRecursive(root, isbn);
+    }
+
+    private Book searchRecursive (Book current, int isbn) {
+        if (current == null || current.isbn == isbn) {
+            return current;
+        } else if (isbn < current.isbn) {
+            return searchRecursive(current.left, isbn);
+        } else {
+            return searchRecursive(current.right, isbn);
+        }
+    }
 }
