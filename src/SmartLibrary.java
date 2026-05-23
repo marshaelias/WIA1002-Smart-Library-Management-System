@@ -8,14 +8,14 @@ public class SmartLibrary implements LibraryADT {
     
     @Override
     public void addBook(int isbn, String title, String author){
-        // Pass data to Alisha's BST
+        
         catalogue.insert(isbn, title, author);
         System.out.println("Success: Book added to the catalogue.");
     }
     
     @Override
     public void searchBook(int isbn){
-        // Use Auni's O(log n) search
+        
         Book b = catalogue.search(isbn);
         if (b != null) {
             System.out.println("Found -> Title: " + b.title + " | Author: " + b.author);
@@ -30,7 +30,7 @@ public class SmartLibrary implements LibraryADT {
         Book b = catalogue.search(isbn);
         
         if (b != null) {
-            // 2. If it exists, push to Marsha's stack
+            // 2. If it exists, push to user's stack
             history.push(b);
             System.out.println("Success: Borrowed '" + b.title + "'. Added to history.");
         } else {
@@ -41,16 +41,16 @@ public class SmartLibrary implements LibraryADT {
     
     @Override
     public void viewLatestHistory(){
-        // Trigger Marsha's history display
+        // Trigger user's history display
         history.show();
     }
     
     public void printMenu(){
         System.out.println("_______________________\nSmartLibrary Menu\n_______________________");
         System.out.println("1. Add book");
-        System.out.println("2. Search (BST)");
-        System.out.println("3. Borrow (Stack)");
-        System.out.println("4. History");
+        System.out.println("2. Search Book");
+        System.out.println("3. Borrow Book");
+        System.out.println("4. View History");
         System.out.println("5. Exit");
     }
     
@@ -59,7 +59,7 @@ public class SmartLibrary implements LibraryADT {
         
         while(true){
             printMenu();
-            System.out.println("Enter choice: ");
+            System.out.print("Enter choice: ");
             
             //check input
             if(!scan.hasNextInt()){
@@ -85,34 +85,34 @@ public class SmartLibrary implements LibraryADT {
         switch(choice){
             
             case 1: 
-                System.out.println("Enter Book ISBN: ");
+                System.out.print("Enter Book ISBN: ");
                 
                 //check input validation
                 while(!scan.hasNextInt()){
                     System.out.println("Invalid input! Please enter a valid integer value");
-                    System.out.println("Enter Book ISBN: ");
+                    System.out.print("Enter Book ISBN: ");
                     scan.next();
                 }
                 
                 int isbn = scan.nextInt();
                 scan.nextLine();
                 
-                System.out.println("Enter Book Title: ");
+                System.out.print("Enter Book Title: ");
                 String title = scan.nextLine();
                 
-                System.out.println("Enter Book Author: ");
+                System.out.print("Enter Book Author: ");
                 String author = scan.nextLine();
                 
                 addBook(isbn, title, author);
                 break;
                 
             case 2:
-                System.out.println("Enter Book ISBN to search: ");
+                System.out.print("Enter Book ISBN to search: ");
                 
                 //check input validation
                 while(!scan.hasNextInt()){
                     System.out.println("Invalid input! Please enter a valid integer value");
-                    System.out.println("Enter Book ISBN: ");
+                    System.out.print("Enter Book ISBN: ");
                     scan.next();
                 }
                 
@@ -120,7 +120,7 @@ public class SmartLibrary implements LibraryADT {
                 break;
                 
             case 3:
-                System.out.println("Enter Book ISBN to borrow: ");
+                System.out.print("Enter Book ISBN to borrow: ");
                 
                 //check input validation
                 while(!scan.hasNextInt()){
