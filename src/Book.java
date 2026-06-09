@@ -1,15 +1,31 @@
 public class Book {
-    int isbn;
-    String title;
-    String author;
-    Book left;
-    Book right;
-    
+    private int isbn;
+    private String title;
+    private String author;
+    private Book left;
+    private Book right;
+    private boolean isAvailable;
+
     public Book(int isbn, String title, String author){
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.left = null;
         this.right = null;
+        this.isAvailable = true; // default available
     }
+
+    // Getters and setters (information hiding)
+    public int getIsbn() { return isbn; }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+
+    public Book getLeft() { return left; }
+    public void setLeft(Book left) { this.left = left; }
+
+    public Book getRight() { return right; }
+    public void setRight(Book right) { this.right = right; }
+
+    public boolean isAvailable() { return isAvailable; }
+    public void setAvailable(boolean available) { this.isAvailable = available; }
 }
