@@ -19,7 +19,7 @@ public class Main {
         System.out.println("_______________________\nSmartLibrary Menu\n_______________________");
         System.out.println("1. Add book");
         System.out.println("2. Search Book (by ISBN)");
-        System.out.println("3. Search (title/author substring)");
+        System.out.println("3. Search (title/author)");
         System.out.println("4. Borrow Book");
         System.out.println("5. Return Book");
         System.out.println("6. View History");
@@ -38,7 +38,7 @@ public class Main {
             
             //check input
             if(!scan.hasNextInt()) {
-                System.out.println("Invalid input! Please enter an integer (1-5)");
+                System.out.println("Invalid input! Please enter an integer (1-10)");
                 scan.next();
                 continue;
             }
